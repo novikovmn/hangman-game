@@ -24,7 +24,7 @@ public class RandomWordSelector {
 		
 		StringBuilder stringBuilder = new StringBuilder();
 		
-		try (BufferedReader bufferedReader = new BufferedReader(new FileReader("words.txt"))) {
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader("resources/words.txt"))) {
 			bufferedReader.lines().forEach(stringBuilder::append);
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found!");
