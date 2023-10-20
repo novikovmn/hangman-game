@@ -15,21 +15,16 @@ public class HangmanDrawer {
 
 	public void printHangman() {
 		for (String[] matrixRow : this.hangmanDrawingMatrix) {
-			for (int i = 0; i < matrixRow.length; i++) {
-				System.out.print(matrixRow[i]);
-				if (i == matrixRow.length) {
-					System.out.print("\n");
-				}
-			}
+			System.out.println(String.join("", matrixRow));
 		}
 	}
 
 	public void updateHangmanDrawingMatrix(int numberOfMistake) {
 		switch (numberOfMistake) {
 			case 1 -> {
-				this.hangmanDrawingMatrix[7][0] = "_";
-				this.hangmanDrawingMatrix[7][1] = "_";
-				this.hangmanDrawingMatrix[7][2] = "_";
+				this.hangmanDrawingMatrix[7][0] = "/";
+				this.hangmanDrawingMatrix[7][1] = "=";
+				this.hangmanDrawingMatrix[7][2] = "\\";
 				this.hangmanDrawingMatrix[6][1] = "|";
 				this.hangmanDrawingMatrix[5][1] = "|";
 				this.hangmanDrawingMatrix[4][1] = "|";
@@ -39,13 +34,13 @@ public class HangmanDrawer {
 				this.hangmanDrawingMatrix[3][1] = "|";
 				this.hangmanDrawingMatrix[2][1] = "|";
 				this.hangmanDrawingMatrix[1][1] = "|";
-				this.hangmanDrawingMatrix[0][1] = "|";
+				this.hangmanDrawingMatrix[0][1] = " ";
 			}
 	
 			case 3 -> {
-				this.hangmanDrawingMatrix[0][2] = "-";
-				this.hangmanDrawingMatrix[0][3] = "-";
-				this.hangmanDrawingMatrix[0][4] = "-";
+				this.hangmanDrawingMatrix[0][2] = "_";
+				this.hangmanDrawingMatrix[0][3] = "_";
+				this.hangmanDrawingMatrix[0][4] = "_";
 			}
 	
 			case 4 -> {
@@ -63,7 +58,7 @@ public class HangmanDrawer {
 		}
 	}
 
-	private void clearDrawing() {
+	public void clearDrawing() {
 		for (String[] matrixRow : this.hangmanDrawingMatrix) {
 			Arrays.fill(matrixRow, " ");
 		}
